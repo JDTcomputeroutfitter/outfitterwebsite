@@ -1,0 +1,14 @@
+{% extends 'manager/templates/base.html' %}
+{% block title %}{{ customer }}{% endblock %}
+{% block customer_active %}active{% endblock %}
+
+{% block body %}
+
+<h2>{{ customer.last_name  }}, {{ customer.first_name }}</h2>
+<ul>
+  <li>Customer ID: {{ customer.user}}</li>
+    <Li>Email Address: {{customer.email_address}}</Li>
+    <li>Department: {{customer.department}}</li>
+</ul>
+<a href="{% url 'manager:change_password' %}">Click here</a> to change your password.
+{% endblock %}

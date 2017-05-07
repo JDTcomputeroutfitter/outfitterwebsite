@@ -1,0 +1,21 @@
+{% extends 'manager/templates/base.html' %}
+{% block title %}{{ customer }}{% endblock %}
+{% block customer_active %}active{% endblock %}
+
+{% block body %}
+
+{% if customer %}
+<h2>{{ customer.last_name  }}, {{customer.first_name}}</h2>
+<ul>
+  <li>Customer ID: {{ customer.user}}</li>
+    <Li>Email Address: {{customer.email_address}}</Li>
+    <li> Department: {{customer.department}}</li>
+    <br>
+  {% if customer.is_a_manager %}
+<h3>Manager</h3>
+  {% endif %}
+</ul>
+{% else %}
+<p> User does not exist or account is disabled</p>
+{% endif %}
+{% endblock %}

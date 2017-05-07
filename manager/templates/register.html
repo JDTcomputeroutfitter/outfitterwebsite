@@ -1,0 +1,58 @@
+{% extends 'manager/templates/base.html' %}
+{% block title %}Add New User{% endblock %}
+<!--{% block register_active %}active{% endblock %} -->
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Add New User</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'manager/templates/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="subit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+<head>
+<style>
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+</style>
+</head>
+<body>
+
+<a href="{% url 'manager:register_customer' %}" class="next">Next &raquo;</a>
+</body>
+
+{% endblock %}
+
