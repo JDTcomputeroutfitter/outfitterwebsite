@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <title>{% block title %}Outfitter{% endblock %}</title>
     {% load staticfiles %}
-    <!--<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
-   <!-- <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-   <!-- <script src="{% static 'music/js/main.js' %}"></script> -->
 
 </head>
 <body>
@@ -29,6 +26,12 @@
 
         <!-- Items -->
         <div class="collapse navbar-collapse" id="topNavBar">
+
+                            <div class="masthead-shadow-section"></div>
+                <div class="main-nav-section">
+                    <div class="shadow-overlay-left"></div>
+                    <ul class="tier1">
+
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="{% url 'employee:employee_profile' %}">
@@ -36,7 +39,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'employee:index' %}">
+                    <a href="{% url 'employee:category_index' %}">
                         <span class="glyphicon" aria-hidden="true"></span>&nbsp; Create System
                     </a>
                 </li>
@@ -53,6 +56,7 @@
             </ul>
         </div>
 
+    </div>
     </div>
 </nav>
 {% block body %}

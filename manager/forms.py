@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from employee.models import Customer, Department
-
+from employee.models import Customer, Department, CPU, Monitor, RAM, HDD, VideoCard, PowerSupply
 
 
 
@@ -39,6 +38,52 @@ class DepartmentForm(forms.ModelForm):
                 department_id += 1
                 break
             return department_id
+
+
+class CPUForm(forms.ModelForm):
+
+    class Meta:
+        model = CPU
+        fields = ['manufacturer', 'name', 'category', 'cpu_cores', 'cpu_speed', 'price']
+
+
+class RAMForm(forms.ModelForm):
+
+    class Meta:
+        model = RAM
+        fields = ['manufacturer', 'name', 'category', 'ram_capacity', 'price']
+
+
+class HDDForm(forms.ModelForm):
+
+    class Meta:
+        model = HDD
+        fields = ['manufacturer', 'name', 'category', 'hdd_type', 'hdd_capacity', 'price']
+
+
+class MonitorForm(forms.ModelForm):
+
+    class Meta:
+        model = Monitor
+        fields = ['manufacturer', 'name', 'category', 'monitor_size', 'monitor_resolution', 'price']
+
+class VideoCardForm(forms.ModelForm):
+
+    class Meta:
+        model = VideoCard
+        fields = ['manufacturer', 'name', 'category', 'vc_clock', 'vc_ram', 'price']
+
+
+class PowerSupplyForm(forms.ModelForm):
+
+    class Meta:
+        model = PowerSupply
+        fields = ['manufacturer', 'name', 'category', 'power_supply_wattage', 'price']
+
+
+class ChooseComponentForm(forms.Form):
+
+      fields = forms.ChoiceField(choices=[("cpu","cpu"), ("ram","ram")])
 
 
 

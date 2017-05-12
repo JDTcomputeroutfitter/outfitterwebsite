@@ -5,48 +5,52 @@
 {% block body %}
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
+    <button onclick="ShowHide()">Show/Hide available departments</button>
+    <div id ="departments" style="display:none">        <div class="col-sm-12 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-body">
+                    <div class="panel-body">
+                        <h4>Available Departments</h4>
+                        {% for departmentname in departments %}
+                        <h5> {{ departmentname.department_name }}</h5>
+                        {% endfor %}
 
-                    <h3>Filter by Department</h3>
-                    <h4>Available Departments</h4>
-                    {% for departmentname in departments %}
-                    <h5> {{ departmentname.department_name }}</h5>
-                    {% endfor %}
-
-
-                    {% if error_message %}
+                        {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
-                    {% endif %}
-                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="id_department">
-                                Department:
-                            </label>
-                            <div class="col-sm-10">
-                                <input id="id_department" maxlength="30" name="department" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </div>
-                        </div>
-                    </form>
+                        {% endif %}
+                    </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-
+    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Filter by Department</h3>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="id_department">
+                Department:
+            </label>
+            <div class="col-sm-10">
+                <input id="id_department" maxlength="30" name="department" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>
 
-
+<script>
+function ShowHide() {
+    var x = document.getElementById('departments');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
         {% if customers %}
             {% for customer in customers %}
                 <div>
@@ -83,6 +87,7 @@
     <br>
      <a href="{% url 'manager:register_department' %}" class="btn btn-primary btn-sm" role="button">Add department</a>
 <div>
+
 
 {% endblock %}
 
