@@ -1,0 +1,125 @@
+{% extends 'employee/templates/base.html' %}
+{% block login_active %}active{% endblock %}
+{% block body %}
+
+
+<!-- Top Category Info -->
+{% if categories %}
+{% for object in categories %}
+<h4>{{ object.category_name }}</h4>
+
+<!-- Bottom Info -->
+<div class="container">
+        <div class="col-sm-8 col-md-9">
+<!-- Components -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Order </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <!-- fill components with cpu -->
+                            {% if object.category_name == 'CPU' %}
+                            {% for component in cpu %}
+                            <tr>
+                                <td>{{ component.name}}</td>
+                                <td>${{ component.price}}</td>
+                                <td>
+                                    <a href="{% url 'employee:cpu_order' component.id %}" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-plus
+                                        {% if component.ordered == True %}text-primary{% endif %}">
+                                        </span></a></td>
+                            </tr>
+                        {% endfor %}
+                        {% endif %}
+                        <!-- fill components with ram -->
+                        {% if object.category_name == 'RAM' %}
+                        {% for component in ram %}
+                            <tr>
+                                <td>{{ component.name}}</td>
+                                <td>${{ component.price}}</td>
+                                <td>
+                                    <a href="{% url 'employee:ram_order' component.id %}" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-plus
+                                        {% if component.ordered == True %}text-info{% endif %}">
+                                        </span></a></td>
+                            </tr>
+                        {% endfor %}
+                        {% endif %}
+                        <!-- fill components with hdd -->
+                        {% if object.category_name == 'HDD' %}
+                        {% for component in hdd %}
+                            <tr>
+                                <td>{{ component.name}}</td>
+                                <td>${{ component.price}}</td>
+                                <td>
+                                    <a href="{% url 'employee:hdd_order' component.id %}" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-plus
+                                        {% if component.ordered == True %}text-info{% endif %}">
+                                        </span></a></td>
+                            </tr>
+                        {% endfor %}
+                        {% endif %}
+                        <!-- fill components with monitor -->
+                        {% if object.category_name == 'Monitor' %}
+                        {% for component in monitor %}
+                            <tr>
+                                <td>{{ component.name}}</td>
+                                <td>${{ component.price}}</td>
+                                <td>
+                                    <a href="{% url 'employee:monitor_order' component.id %}" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-plus
+                                        {% if component.ordered == True %}text-info{% endif %}">
+                                        </span></a></td>
+                            </tr>
+                        {% endfor %}
+                        {% endif %}
+                        <!-- fill components with video card -->
+                        {% if object.category_name == 'Video Card' %}
+                        {% for component in videocard %}
+                            <tr>
+                                <td>{{ component.name}}</td>
+                                <td>${{ component.price}}</td>
+                                <td>
+                                    <a href="{% url 'employee:videocard_order' component.id %}" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-plus
+                                        {% if component.ordered == True %}text-info{% endif %}">
+                                        </span></a></td>
+                            </tr>
+                        {% endfor %}
+                        {% endif %}
+                        <!-- fill components with power supply -->
+                        {% if object.category_name == 'Power Supply' %}
+                        {% for component in powersupply %}
+                            <tr>
+                                <td>{{ component.name}}</td>
+                                <td>${{ component.price}}</td>
+                                <td>
+                                    <a href="{% url 'employee:powersupply_order' component.id %}" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-plus
+                                        {% if component.ordered == True %}text-info{% endif %}">
+                                        </span></a></td>
+                            </tr>
+                        {% endfor %}
+                        {% endif %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+{% endfor %}
+{% else %}
+<h2>No categories exist</h2>
+{% endif %}
+{% endblock %}
