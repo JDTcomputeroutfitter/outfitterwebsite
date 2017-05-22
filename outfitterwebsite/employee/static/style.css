@@ -1,0 +1,158 @@
+body {
+    background-color: #FFF;
+    background-repeat: no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+ul.errorlist {
+    padding-left: 0;
+}
+
+ul.errorlist > li {
+    list-style: none;
+}
+
+.glyphicon-glyphicon-plus {
+    color: #CCCCCC;
+    font-size: 16px;
+}
+
+.glyphicon-glyphicon-plus.active {
+    color: #FDB230;
+}
+
+#employee-list{
+  width:400px;
+  height:auto;
+  vertical-align: middle;
+}
+
+nav a {text-decoration: none;
+}
+
+h2 {color: #3399CC;
+    font-family: Georgia, "Times New Roman", serif;
+    text-shadow: 1px 1px #CCCCCC;
+}
+
+dt {color: #000033;
+}
+
+h1 {margin-bottom: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    margin-top: 0px;
+}
+
+h3 {font-family: Georgia, "Times New Roman", serif;
+}
+
+footer {font-size: 75%;
+    font-style: italic;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    padding: 20px;
+    margin-left: 190px;
+    background-color: #FFFFFF;
+}
+
+#wrapper {margin: auto;
+    width: 80%;
+    background-color: #FFF;
+    min-width: 960px;
+    max-width: 2048px;
+    box-shadow: 3px 3px;
+}
+
+main {padding-top: 1px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    display: block;
+    background-color: #FFFFFF;
+    margin-left: 190px;
+}
+
+nav a:link {color: #000033;
+}
+
+nav a:visited {color: #344873;
+}
+
+nav a:hover {color: #FFFFFF;
+}
+
+header, main, nav, footer, figure, figcaption, aside, section, article {display: block;
+}
+
+#mobile {display: none;
+}
+
+#desktop {display: inline;
+}
+
+@media only screen and (max-width: 64em){
+    body {margin: 0px;
+    background-color: #FFFFFF;
+    }
+    #wrapper {min-width: 0px;
+    width: auto;
+    box-shadow: none;
+    }
+    main {margin-left: 0px;
+    }
+    nav {float: none;
+    width: auto;
+    text-align: center;
+    padding: 0.5em;
+    }
+    nav li {display: inline;
+    padding-top: 0.25em;
+    padding-bottom: .25em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    }
+}
+
+@media only screen and (max-width: 37.5em){
+    header{padding: 1em;
+    }
+    main {padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 90%;
+    }
+    h1 {font-size: 1.5em;
+    }
+    nav {padding: 0px;
+    }
+    nav li {display: block;
+    margin: 0px;
+    border-bottom: 2px solid #FFF;
+    }
+    nav a {display: block;
+    }
+    #mobile {display: inline;
+    }
+    #desktop {display: none;
+    }
+}
+
+table {border: 1px solid #FFF;
+	   width: 80%;
+	   border-spacing: 0;
+}
+
+td, th {padding: 5px;
+		border: 1px solid #FFF;
+}
+
+td {text-align: center;
+}
+
+.text {text-align: left;
+}
+
+tr :nth-of-type(odd) {background-color:#F5FAFC;
+}
